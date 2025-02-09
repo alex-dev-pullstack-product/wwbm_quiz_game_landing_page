@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Contact</title>
+    <style>
+        .contact-box {
+            max-width: 800px;
+            padding: 20px;
+            border-radius: 8px;
+            align-self: center;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .form-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        label {
+            font-weight: bold;
+            min-width: 80px;
+        }
+        input, textarea {
+            margin-top: 5px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            flex: 1;
+        }
+        textarea {
+            resize: vertical;
+        }
+    </style>
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const subject = document.getElementById('subject').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            const mailtoLink = `mailto:admin@pullstack.id.vn?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+            window.location.href = mailtoLink;
+        }
+    </script>
+</head>
+<body>
+    <!-- ==== HEADER ==== -->
+  <header class="container header">
+    <!-- ==== NAVBAR ==== -->
+    <nav class="nav">
+      <div class="logo">
+        <h2>Flashcard Collections</h2>
+      </div>
+
+      <div class="nav_menu" id="nav_menu">
+        <button class="close_btn" id="close_btn">
+          <i class="ri-close-fill"></i>
+        </button>
+
+        <ul class="nav_menu_list">
+          <li class="nav_menu_item">
+            <a href="index.html" class="nav_menu_link">Home</a>
+          </li>
+          <li class="nav_menu_item">
+            <a href="terms_of_use.html" class="nav_menu_link">Terms of use</a>
+          </li>
+          <li class="nav_menu_item">
+            <a href="privacy_policy.html" class="nav_menu_link">Privacy Policy</a>
+          </li>
+          <li class="nav_menu_item">
+            <a href="contact.html" class="nav_menu_link">Contact</a>
+          </li>
+        </ul>
+      </div>
+
+      <button class="toggle_btn" id="toggle_btn">
+        <i class="ri-menu-line"></i>
+      </button>
+    </nav>
+  </header>
+<center>
+    <div class="contact-box">
+        <form onsubmit="handleFormSubmit(event)">
+            <div class="form-group form-group-inline">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+            </div>
+
+            <div class="form-group form-group-inline">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Subject" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+            </div>
+            <div style="margin-top: 10px;">
+                <button class="btn documentation_btn">
+                    Send
+                </button>
+            </div>
+        </form>
+    </div>
+    </center>
+</div>
+</body>
+</html>
